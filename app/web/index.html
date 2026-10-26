@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Recognition Engine</title>
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Face Recognition Engine</h1>
+      <span class="subtitle">SCRFD · ByteTrack · ArcFace · prototype</span>
+    </div>
+    <div class="status" id="status" aria-live="polite">
+      <span class="pill" id="stream-pill">Stream: —</span>
+      <span class="pill" id="fps-pill">— fps</span>
+      <span class="pill" id="enrolled-pill">— enrolled</span>
+      <span class="pill" id="provider-pill">—</span>
+    </div>
+    <a class="tv-link" href="/tv" target="_blank" rel="noopener">Open TV mode</a>
+  </header>
+
+  <main class="layout">
+    <section class="panel video-panel">
+      <div class="panel-head">
+        <h2>Live recognition</h2>
+        <span class="hint">Angled faces get a zoom inset on the right edge</span>
+      </div>
+      <div class="video-frame">
+        <img id="video" alt="Annotated live video stream">
+        <p class="video-empty" id="video-empty">Waiting for video…</p>
+      </div>
+    </section>
+
+    <section class="panel tracks-panel">
+      <div class="panel-head">
+        <h2>Faces in view</h2>
+        <span class="hint">Registered photo vs. live zoom with face structure</span>
+      </div>
+      <div class="track-cards" id="track-cards">
+        <p class="empty">No faces in view.</p>
+      </div>
+    </section>
+
+    <section class="panel people-panel">
+      <div class="panel-head">
+        <h2>Enrolled people</h2>
+        <button type="button" class="secondary small" id="reload-button">Reload dataset</button>
+      </div>
+      <form class="enroll-form" id="enroll-form">
+        <input name="name" placeholder="Full name" required maxlength="100">
+        <input name="image" type="file" accept="image/jpeg,image/png,image/webp,image/bmp" required>
+        <button type="submit">Enroll</button>
+      </form>
+      <p class="form-message" id="enroll-message" role="status"></p>
+      <div class="people-grid" id="people-grid"></div>
+    </section>
+
+    <section class="panel events-panel">
+      <div class="panel-head"><h2>Recognition log</h2></div>
+      <ol class="events" id="events"></ol>
+    </section>
+  </main>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

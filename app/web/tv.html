@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check-in TV</title>
+  <link rel="stylesheet" href="/static/tv.css">
+</head>
+<body class="sidebar-hidden">
+  <main class="stage" id="stage">
+    <section class="idle" id="idle">
+      <p class="clock" id="clock"></p>
+      <h1>Look at the camera to check in</h1>
+      <p class="idle-hint">Registered participants appear here automatically.</p>
+    </section>
+
+    <section class="spotlight" id="spotlight" hidden aria-live="assertive">
+      <img class="spotlight-photo" id="spotlight-photo" alt="">
+      <h1 class="spotlight-name" id="spotlight-name"></h1>
+      <p class="status-badge">✓ Checked in</p>
+      <p class="spotlight-time" id="spotlight-time"></p>
+      <p class="spotlight-next" id="spotlight-next"></p>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+    </section>
+
+    <img class="camera-preview" id="camera-preview" alt="Live camera">
+
+    <div class="stage-actions">
+      <button type="button" id="upload-button" title="Check in everyone in a photo (U)">Upload photo</button>
+      <button type="button" id="fullscreen-button">Fullscreen</button>
+    </div>
+    <input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp,image/bmp" hidden>
+    <p class="upload-notice" id="upload-notice" role="status" hidden></p>
+  </main>
+
+  <aside class="sidebar">
+    <header class="sidebar-head">
+      <h2>Check-ins</h2>
+      <span class="count" id="count">0</span>
+    </header>
+    <ol class="queue" id="queue"></ol>
+    <p class="queue-empty" id="queue-empty">No one has checked in yet.</p>
+    <footer class="sidebar-foot">
+      <button type="button" id="reset-button">New session</button>
+    </footer>
+  </aside>
+
+  <script src="/static/tv.js"></script>
+</body>
+</html>

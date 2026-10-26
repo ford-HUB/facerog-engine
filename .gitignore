@@ -1,0 +1,16 @@
+.claude
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Model weights are downloaded by scripts/download_weights.py
+app/ml/weights/*
+!app/ml/weights/.gitkeep
+
+# Face photos and test media are biometric / personal data: never commit them
+datasets/faces/*
+!datasets/faces/.gitkeep
+datasets/samples/*
+!datasets/samples/.gitkeep

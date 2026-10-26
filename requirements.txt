@@ -1,0 +1,10 @@
+fastapi[standard]>=0.115
+pydantic-settings>=2.4
+python-multipart>=0.0.9
+numpy>=1.26
+scipy>=1.13
+opencv-python>=4.10
+# CPU build. For GPU use ONE of these instead:
+#   onnxruntime-gpu       (NVIDIA CUDA 12 + cuDNN 9)
+#   onnxruntime-directml  (Windows, any DirectX 12 GPU, no CUDA install)
+onnxruntime>=1.19
